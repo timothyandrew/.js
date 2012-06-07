@@ -4,6 +4,7 @@
 */
 
 var toggleSidebar = function(){
+  localStorage.setItem("toggleRedditSidebar", !localStorage.getItem("toggleRedditSidebar"));
 	if($('.side').attr('style')){if ($('.side').attr('style').match('none')){$('.side').css('display', 'block')}else{ $('.side').css('display', 'none')};}else{$('.side').css('display', 'none');}
 }                           
 
@@ -13,4 +14,6 @@ item.innerHTML = '<a href="#">sidebar</a>';
 item.onclick = toggleSidebar;
 list.insertBefore(item, list.firstChild);
 
-toggleSidebar();
+if(!localStorage.getItem("toggleRedditSidebar")){
+  toggleSidebar();
+}
